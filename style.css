@@ -1,0 +1,317 @@
+
+/* ---------- GENERAL ---------- */
+
+* {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: "Georgia", serif;
+    color: #3b3328;
+    background-color: #f4efe6;
+}
+
+
+/* ---------- HERO ---------- */
+
+.hero {
+    height: 100vh;
+
+    background-image: linear-gradient(
+        rgba(48, 55, 38, 0.45),
+        rgba(48, 55, 38, 0.45)
+    ), url("mountains.jpeg");
+
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.hero-content {
+    width: 100%;
+    text-align: center;
+}
+
+
+/* ---------- HEADER ---------- */
+
+header {
+    color: #fff8ed;
+}
+
+
+header h1 {
+    font-size: 4rem;
+    font-weight: 400;
+    letter-spacing: 3px;
+    margin-bottom: 40px;
+}
+
+
+
+/* ---------- NAVIGATION ---------- */
+
+nav ul {
+    list-style: none;
+    padding: 0;
+
+    display: flex;
+    justify-content: center;
+    gap: 45px;
+}
+
+
+nav a {
+    color: #fff8ed;
+    text-decoration: none;
+    font-size: 1.2rem;
+
+    transition: .3s;
+}
+
+
+nav a:hover {
+    color: #d8b98a;
+}
+
+
+hr {
+    width: 50%;
+    border: none;
+    height: 2px;
+    background-color: #d8b98a;
+}
+
+
+
+/* ---------- SECTIONS ---------- */
+
+section:not(.hero) {
+    padding: 80px 10%;
+    text-align: center;
+}
+
+
+h2 {
+    color: #40513b;
+    font-size: 2.5rem;
+    font-weight: 400;
+}
+
+
+
+/* ---------- ABOUT ---------- */
+
+.about {
+    background-color: #f4efe6;
+}
+
+
+.about img {
+    width: 500px !important;
+    border-radius: 15px;
+    border: 5px solid #d8b98a;
+}
+
+
+.about p {
+    max-width: 900px;
+    margin: 40px auto;
+
+    font-size: 1.15rem;
+    line-height: 1.8;
+}
+
+
+
+/* ---------- PORTFOLIO ---------- */
+
+/* ---------- PORTFOLIO ---------- */
+
+.portfolio {
+    background-color: #e6ddcf;
+}
+
+.portfolio-slider {
+    max-width: 1000px;
+    margin: 40px auto;
+    position: relative;
+}
+
+.portfolio-slider img {
+    width: 100%;
+    display: block;
+
+    border-radius: 15px;
+    border: 5px solid #d8b98a;
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .25);
+
+    transition: opacity .3s ease;
+}
+
+/* Left & Right Buttons */
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    background-color: rgba(64, 81, 59, .8);
+    color: white;
+
+    border: none;
+    border-radius: 50%;
+
+    width: 55px;
+    height: 55px;
+
+    font-size: 28px;
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+.arrow:hover {
+    background-color: #d8b98a;
+    color: #3b3328;
+}
+
+.left {
+    left: -70px;
+}
+
+.right {
+    right: -70px;
+}
+/*
+.portfolio {
+    background-color: #e6ddcf;
+}
+
+
+.portfolio img {
+    width: 30% !important;
+    margin: 12px;
+
+    border-radius: 15px;
+
+    box-shadow: 0 5px 15px rgba(60,40,20,.2);
+
+    transition: .3s;
+}
+
+
+.portfolio img:hover {
+    transform: scale(1.05);
+}
+
+*/
+
+/* ---------- PRICING ---------- */
+
+.pricing {
+    background-color: #f4efe6;
+}
+
+.package-container{
+    display: flex;
+}
+.package-card{
+    background-color: white;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 12px;
+    box-shadow:0 8px 20px rgba(0,0,0,.12);
+    flex: 1;
+
+}
+
+.package-card button{
+
+    margin-top:20px;
+
+    width:100%;
+
+    padding:12px;
+
+    background:#3b3328;
+
+    color:white;
+
+    border:none;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    font-size:16px;
+}
+
+.package-card button:hover{
+
+    background:#5a4b3d;
+
+    transition:.3s;
+}
+
+.package-container{
+
+    display:flex;
+
+    gap:25px;
+
+    flex-wrap:wrap;
+}
+
+
+/* ---------- MOBILE ---------- */
+
+@media(max-width:768px){
+
+    header h1 {
+        font-size: 2.5rem;
+    }
+
+
+    nav ul {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+
+    .portfolio img {
+        width: 85% !important;
+    }
+
+}
+
+footer {
+    background-color: #40513b;
+    color: #fff8ed;
+    text-align: center;
+    border-top: 3px solid #d8b98a;
+}
+
+footer div {
+    display: flex;           
+    justify-content: center; 
+    gap: 45px;              
+    list-style: none;      
+}
+
+footer div li {
+    list-style: none;      
+}
+
+footer div li a {
+    color: #fff8ed;
+    text-decoration: none;
+}
+
