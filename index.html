@@ -45,15 +45,81 @@
             </p>
         </section>
 
-        <section id = portfolio class ="portfolio">
+        <section id="portfolio" class="portfolio">
             <h2>Portfolio</h2>
+            <p class="portfolio-subhead">Click a category to view gallery</p>
             
-            <img src="Cait1.jpeg" style="width: 25%; border-radius: 10px;">
-            <img src="cait2.jpeg" style="width: 25%; border-radius: 10px;">
-            <img src="cait3.jpeg" style="width: 25%; border-radius: 10px;">
-            <img src="2g1.jpeg" style="width: 25%; border-radius: 10px;">
-            <img src="2g2.jpeg" style="width: 25%; border-radius: 10px;">
+            <!-- 1. Category Cover Cards -->
+            <div class="category-grid">
+                <div class="category-card" onclick="openGallery('portraits')">
+                    <img src="Cait1.jpeg" alt="Portraits Category">
+                    <div class="category-overlay">
+                        <h3>Portraits</h3>
+                    </div>
+                </div>
 
+                <div class="category-card" onclick="openGallery('family')">
+                    <img src="fam11.JPG" alt="Family & Couples Category">
+                    <div class="category-overlay">
+                        <h3>Family & Couples</h3>
+                    </div>
+                </div>
+
+                <div class="category-card" onclick="openGallery('graduates')">
+                    <img src="balcony.JPG" alt="Graduates Category">
+                    <div class="category-overlay">
+                        <h3>Graduates</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hidden Raw Image List for JavaScript to collect -->
+            <div id="image-data-source" style="display: none;">
+                <!-- Portraits -->
+                <img src="Cait1.jpeg" data-category="portraits">
+                <img src="cait2.jpeg" data-category="portraits">
+                <img src="cait3.jpeg" data-category="portraits">
+
+                <!-- Family / Couples -->
+                <img src="fam11.JPG" data-category="family">
+                <img src="fam12.JPG" data-category="family">
+                <img src="fam13.JPG" data-category="family">
+                <img src="fam14.JPG" data-category="family">
+                <img src="fam21.JPG" data-category="family">
+                <img src="fam22.JPG" data-category="family">
+                <img src="fam23.JPG" data-category="family">
+                <img src="fam24.JPG" data-category="family">
+                <img src="fam25.JPG" data-category="family">
+                <img src="beach.JPG" data-category="family">
+                <img src="beach2.JPG" data-category="family">
+                <img src="beach3.JPG" data-category="family">
+                <img src="beach4.JPG" data-category="family">
+                <img src="beach5.JPG" data-category="family">
+
+                <!-- Graduates -->
+                <img src="2g1.jpeg" data-category="graduates">
+                <img src="2g2.jpeg" data-category="graduates">
+                <img src="fount1.JPG" data-category="graduates">
+                <img src="fount2.JPG" data-category="graduates">
+                <img src="balcony.JPG" data-category="graduates">
+                <img src="balcony3.JPG" data-category="graduates">
+                <img src="balcony2.JPG" data-category="graduates">
+            </div>
+
+            <!-- 2. Interactive Lightbox Slider Popup -->
+            <div id="portfolio-modal" class="portfolio-modal">
+                <span class="close-btn" onclick="closeGallery()">&times;</span>
+                <h3 id="modal-title" class="modal-title">Gallery</h3>
+                
+                <div class="modal-content">
+                    <button class="arrow left" onclick="changeImage(-1)">&#10094;</button>
+                    <div class="slide-wrapper">
+                        <img id="active-slide" src="" alt="Portfolio Image">
+                        <div id="slide-counter" class="slide-counter">1 / 5</div>
+                    </div>
+                    <button class="arrow right" onclick="changeImage(1)">&#10095;</button>
+                </div>
+            </div>
         </section>
 
         <section id ="pricing" class = "pricing">
@@ -70,7 +136,9 @@
                         Perfect for individual portraits, couples, or small milestone sessions.
                         In this package you will receive 20-40 photos 
                     </p>
-                    <button type="button">Book Now!</button>
+                    <a href="https://cal.com/donnell-wilkins-yra4m6/30min" target="_blank" style="text-decoration: none;">
+                        <button class="book-btn">Pick Date & Book!</button>
+                    </a>
                 </div>
 
                 <div class ="package-card">
@@ -81,7 +149,9 @@
                         Ideal for families, seniors, engagements, or anyone wanting more variety and time.
                         In this package you will receive 50-70 photos
                     </p>
-                    <button type="button">Book Now!</button>
+                    <a href="https://cal.com/donnell-wilkins-yra4m6/60min" target="_blank" style="text-decoration: none;">
+                        <button class="book-btn">Pick Date & Book!</button>
+                    </a>                
                 </div>
 
                 <div class ="package-card">
@@ -91,7 +161,9 @@
                         your budget. The session timer begins when the first photo is taken and ends when 
                         the session is complete.
                     </p>
-                    <button type="button">Book Now!</button>
+                    <a href="https://cal.com/donnell-wilkins-yra4m6/by-the-minute" target="_blank" style="text-decoration: none;">
+                        <button class="book-btn">Pick Date & Book!</button>
+                    </a>   
                 </div>
             </div>
 
@@ -129,21 +201,95 @@
 
 
     
+    
+        <footer>
+            <div>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#pricing">Packages</a></li>
+            </div>
+            <div>
+                <h3>Contact</h3>
+                <p>Charlijayne2005@gmail.com</p>
+                <p>(828) 541-9253</p>      
+            </div>
+            <div style="grid-column: 1 / -1; border-top: 1px solid #444; padding-top: 20px;">
+                <p>&copy; 2026 Charli Jayne Photography. All rights reserved.</p>
+            </div>
+        </footer>
+
+        <script>
+            let activeImages = [];
+            let currentIndex = 0;
+
+            function openGallery(category) {
+                // Collect matching images from data source
+                const allSourceImages = document.querySelectorAll('#image-data-source img');
+                activeImages = [];
+                
+                allSourceImages.forEach(img => {
+                    if (img.dataset.category === category) {
+                        activeImages.push(img.src);
+                    }
+                });
+
+                if (activeImages.length === 0) return;
+
+                // Set title formatting
+                const titleMap = {
+                    'portraits': 'Portraits',
+                    'family': 'Family & Couples',
+                    'graduates': 'Graduates'
+                };
+                document.getElementById('modal-title').textContent = titleMap[category] || category;
+
+                // Reset and display modal
+                currentIndex = 0;
+                updateSlide();
+                document.getElementById('portfolio-modal').classList.add('active');
+                document.body.style.overflow = 'hidden'; // Lock background scrolling
+            }
+
+            function closeGallery() {
+                document.getElementById('portfolio-modal').classList.remove('active');
+                document.body.style.overflow = 'auto'; // Restore background scrolling
+            }
+
+            function changeImage(direction) {
+                currentIndex += direction;
+                if (currentIndex < 0) {
+                    currentIndex = activeImages.length - 1;
+                } else if (currentIndex >= activeImages.length) {
+                    currentIndex = 0;
+                }
+                updateSlide();
+            }
+
+            function updateSlide() {
+                const slideImg = document.getElementById('active-slide');
+                const counter = document.getElementById('slide-counter');
+                
+                slideImg.src = activeImages[currentIndex];
+                counter.textContent = `${currentIndex + 1} / ${activeImages.length}`;
+            }
+
+            // Close on background overlay click
+            document.getElementById('portfolio-modal').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closeGallery();
+                }
+            });
+
+            // Keyboard navigation support (Arrow keys + Esc)
+            document.addEventListener('keydown', function(e) {
+                const modal = document.getElementById('portfolio-modal');
+                if (modal.classList.contains('active')) {
+                    if (e.key === 'ArrowLeft') changeImage(-1);
+                    if (e.key === 'ArrowRight') changeImage(1);
+                    if (e.key === 'Escape') closeGallery();
+                }
+            });
+        </script>
     </body>
-    <footer>
-        <div>
-                <li><a href="#about">About</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#pricing">Packages</a></li>
-        </div>
-        <div>
-            <h3>Contact</h3>
-            <p>Charlijayne2005@gmail.com</p>
-            <p>(828) 541-9253</p>      
-        </div>
-        <div style="grid-column: 1 / -1; border-top: 1px solid #444; padding-top: 20px;">
-            <p>&copy; 2026 Charli Jayne Photography. All rights reserved.</p>
-        </div>
-    </footer>
     
 </html>
