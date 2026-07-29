@@ -292,27 +292,92 @@ h2 {
 
 }
 
+/* Base Footer Styling */
 footer {
     background-color: #40513b;
     color: #fff8ed;
     text-align: center;
     border-top: 3px solid #d8b98a;
+    padding: 40px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
 }
 
-footer div {
-    display: flex;           
-    justify-content: center; 
-    gap: 45px;              
-    list-style: none;      
+/* Inner Container - centers content */
+.footer-container {
+    max-width: 1000px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
 }
 
-footer div li {
-    list-style: none;      
+/* Navigation Links */
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 45px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
-footer div li a {
+.footer-links li a {
     color: #fff8ed;
     text-decoration: none;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: color 0.2s ease-in-out, border-bottom 0.2s ease-in-out;
+    padding-bottom: 2px;
+}
+
+.footer-links li a:hover {
+    color: #d8b98a;
+    border-bottom: 2px solid #d8b98a;
+}
+
+/* Contact Info Section */
+.footer-contact h3 {
+    color: #d8b98a;
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer-contact p {
+    margin: 6px 0;
+}
+
+.footer-contact a {
+    color: #fff8ed;
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+}
+
+.footer-contact a:hover {
+    color: #d8b98a;
+}
+
+/* Copyright / Bottom Border */
+.footer-bottom {
+    width: 100%;
+    border-top: 1px solid rgba(216, 185, 138, 0.3); /* Subtle accent border */
+    padding-top: 20px;
+    font-size: 0.875rem;
+    color: rgba(255, 248, 237, 0.8);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+    .footer-links {
+        flex-direction: column;
+        gap: 15px;
+    }
 }
 
 /* ---------- CATEGORY CARDS ---------- */
