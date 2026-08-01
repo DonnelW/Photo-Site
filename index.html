@@ -59,16 +59,16 @@
                 </div>
 
                 <div class="category-card" onclick="openGallery('family')">
-                    <img src="fam11.JPG" alt="Family & Couples Category">
+                    <img src="fam11.JPG" alt="Family Category">
                     <div class="category-overlay">
-                        <h3>Family & Couples</h3>
+                        <h3>Family</h3>
                     </div>
                 </div>
 
-                <div class="category-card" onclick="openGallery('graduates')">
-                    <img src="balcony.JPG" alt="Graduates Category">
+                <div class="category-card" onclick="openGallery('couples')">
+                    <img src="balcony.JPG" alt="Couples Category">
                     <div class="category-overlay">
-                        <h3>Graduates</h3>
+                        <h3>Couples</h3>
                     </div>
                 </div>
             </div>
@@ -79,8 +79,17 @@
                 <img src="Cait1.jpeg" data-category="portraits">
                 <img src="cait2.jpeg" data-category="portraits">
                 <img src="cait3.jpeg" data-category="portraits">
+                <img src="beach.JPG" data-category="portraits">
+                <img src="beach2.JPG" data-category="portraits">
+                <img src="beach3.JPG" data-category="portraits">
+                <img src="beach4.JPG" data-category="portraits">
+                <img src="beach5.JPG" data-category="portraits">
+                <img src="2g1.jpeg" data-category="portraits">
+                <img src="2g2.jpeg" data-category="portraits">
+                <img src="fount1.JPG" data-category="portraits">
+                <img src="fount2.JPG" data-category="portraits">
 
-                <!-- Family / Couples -->
+                <!-- Family -->
                 <img src="fam11.JPG" data-category="family">
                 <img src="fam12.JPG" data-category="family">
                 <img src="fam13.JPG" data-category="family">
@@ -90,20 +99,12 @@
                 <img src="fam23.JPG" data-category="family">
                 <img src="fam24.JPG" data-category="family">
                 <img src="fam25.JPG" data-category="family">
-                <img src="beach.JPG" data-category="family">
-                <img src="beach2.JPG" data-category="family">
-                <img src="beach3.JPG" data-category="family">
-                <img src="beach4.JPG" data-category="family">
-                <img src="beach5.JPG" data-category="family">
+                
 
-                <!-- Graduates -->
-                <img src="2g1.jpeg" data-category="graduates">
-                <img src="2g2.jpeg" data-category="graduates">
-                <img src="fount1.JPG" data-category="graduates">
-                <img src="fount2.JPG" data-category="graduates">
-                <img src="balcony.JPG" data-category="graduates">
-                <img src="balcony3.JPG" data-category="graduates">
-                <img src="balcony2.JPG" data-category="graduates">
+                <!-- Couples -->
+                <img src="balcony.JPG" data-category="couples">
+                <img src="balcony3.JPG" data-category="couples">
+                <img src="balcony2.JPG" data-category="couples">
             </div>
 
             <!-- 2. Interactive Lightbox Slider Popup -->
@@ -203,29 +204,29 @@
     
     
         <footer class="site-footer">
-            <div class="footer-container">
-                <!-- Navigation Section -->
-                <nav aria-label="Footer Navigation">
-                    <ul class="footer-links">
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#portfolio">Portfolio</a></li>
-                        <li><a href="#pricing">Packages</a></li>
-                    </ul>
-                </nav>
+        <div class="footer-container">
+            <!-- Navigation Section -->
+            <nav aria-label="Footer Navigation">
+                <ul class="footer-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#pricing">Packages</a></li>
+                </ul>
+            </nav>
 
-                <!-- Contact Section -->
-                <div class="footer-contact">
-                    <h3>Contact</h3>
-                    <p><a href="mailto:Charlijayne2005@gmail.com">Charlijayne2005@gmail.com</a></p>
-                    <p><a href="tel:18285419253">(828) 541-9253</a></p>      
-                </div>
-
-                <!-- Copyright Section -->
-                <div class="footer-bottom">
-                    <p>&copy; 2026 Charli Jayne Photography. All rights reserved.</p>
-                </div>
+            <!-- Contact Section -->
+            <div class="footer-contact">
+                <h3>Contact</h3>
+                <p><a href="mailto:Charlijayne2005@gmail.com">Charlijayne2005@gmail.com</a></p>
+                <p><a href="tel:18285419253">(828) 541-9253</a></p>      
             </div>
-        </footer>
+
+            <!-- Copyright Section -->
+            <div class="footer-bottom">
+                <p>&copy; 2026 Charli Jayne Photography. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 
         <script>
             let activeImages = [];
@@ -247,8 +248,8 @@
                 // Set title formatting
                 const titleMap = {
                     'portraits': 'Portraits',
-                    'family': 'Family & Couples',
-                    'graduates': 'Graduates'
+                    'family': 'Family ',
+                    'couples': 'Couples'
                 };
                 document.getElementById('modal-title').textContent = titleMap[category] || category;
 
